@@ -1,0 +1,21 @@
+{
+  "name": "vortex-mod-safety",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Vortex extension that surfaces a mod safety verdict (based on nexusmods.com file status) before deployment",
+  "scripts": {
+    "build": "webpack --config webpack.config.cjs && node scripts/copy-assets.cjs",
+    "deploy": "node scripts/deploy.cjs",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@nexusmods/vortex-api": "2.3.0-beta.1",
+    "@types/jest": "^30.0.0",
+    "jest": "^30.4.2",
+    "ts-jest": "^29.4.11",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.5.0",
+    "webpack": "^5.90.0",
+    "webpack-cli": "^5.1.0"
+  }
+}
