@@ -16,18 +16,29 @@ const CACHE_TTL_MS = 10 * 60 * 1000;
 /** Failed scans are retried sooner. */
 const ERROR_TTL_MS = 30 * 1000;
 
-interface ScanResult {
+export interface ScanResult {
   verdicts: Map<string, Verdict>;
   signature: string;
   timestamp: number;
   failed: boolean;
 }
 
+/**
+ * Called after every ACTUAL scan (cached results do not re-fire it), for
+ * both successful and failed scans. Used to surface scan results to the
+ * user regardless of which trigger (health check, startup, manual button,
+ * mod install) caused the scan.
+ */
+export type ScanCallback = (api: types.IExtensionApi, scan: ScanResult) => void;
+
 export class VerdictService {
   private last?: ScanResult;
   private inflight?: Promise<ScanResult>;
 
-  constructor(private provider: VerdictProvider) {}
+  constructor(
+    private provider: VerdictProvider,
+    private onScan?: ScanCallback,
+  ) {}
 
   /**
    * Verdict for a single installed mod of the active game. Triggers (or
@@ -161,6 +172,13 @@ export class VerdictService {
         verdicts.set(id.key, verdictError(message));
       }
       this.last = { verdicts, signature, timestamp: Date.now(), failed: true };
+    }
+    try {
+      this.onScan?.(api, this.last);
+    } catch (err) {
+      log('warn', 'mod-safety: scan callback failed', {
+        error: err instanceof Error ? err.message : String(err),
+      });
     }
     return this.last;
   }
