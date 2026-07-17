@@ -1,6 +1,6 @@
 {
   "name": "vortex-mod-safety",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "private": true,
   "description": "Vortex extension that surfaces a mod safety verdict (based on nexusmods.com file status) before deployment",
   "scripts": {

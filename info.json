@@ -1,6 +1,6 @@
 {
   "name": "Mod Safety",
   "author": "Jrollsons",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Shows a safety verdict for installed mods based on their current status on nexusmods.com. Files that have been removed from the site are flagged before deployment."
 }
