@@ -1,0 +1,1 @@
+Is that mod still on Nexus Mods? Checks every installed mod against the site and warns you if a file has been removed - before you deploy it. Safety column on your mod list, a scan on every launch, and install-time warnings. No API key needed.

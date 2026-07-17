@@ -1,0 +1,42 @@
+[size=5][b]Know if your mods are still safe — before you deploy them.[/b][/size]
+
+Files get removed from Nexus Mods for a reason — sometimes a routine cleanup, sometimes a moderation takedown. But the copy sitting in your staging folder doesn't know that. A mod you downloaded months ago could have been pulled from the site yesterday, and nothing in your setup would ever tell you.
+
+[b]Mod Safety asks the site.[/b] Every mod you have installed is checked against its current status on nexusmods.com, and anything that has been removed gets flagged — before it's deployed into your game.
+
+[size=4][b]What you get[/b][/size]
+
+[list]
+[*][b]A scan on every launch[/b] — when Vortex starts, your whole mod list is checked (about a second, even for 100+ mods) and you're told the result either way: a green "all clear", or a warning listing exactly what was flagged and why.
+[*][b]A Safety column on your mod list[/b] — Clean / FLAGGED / Caution / Unknown for every mod, sortable and groupable, with the detailed reason in the mod's info panel.
+[*][b]Install-time warnings[/b] — install a mod whose file was removed from the site and you get an immediate alert, with one-click Disable.
+[*][b]A "Check Mod Safety" toolbar button[/b] — scan on demand and get a full summary dialog.
+[*][b]Health check integration[/b] — registered with Vortex's health check system, so it also re-runs automatically after installs and game switches.
+[/list]
+
+[size=4][b]The verdicts[/b][/size]
+
+[list]
+[*][b]Clean[/b] — the file and its mod page are available on the site.
+[*][b]FLAGGED[/b] — the file was deleted on Nexus Mods, the mod was removed by moderation, or the mod no longer exists at all. Treat with suspicion.
+[*][b]Caution[/b] — the mod is currently under review by Nexus Mods moderation. No verdict yet; proceed with care.
+[*][b]Unknown[/b] — not a Nexus download and its hash isn't known to the site. Nothing to check against.
+[/list]
+
+A failed lookup (no internet, site down) is always shown as a failure — never disguised as "safe".
+
+[size=4][b]Privacy & how it works[/b][/size]
+
+Mods are identified by the game/mod/file IDs Vortex already knows, with the archive's MD5 (which Vortex already stores) as fallback for manually added files. Lookups are a couple of batched requests to the nexusmods.com public GraphQL API. [b]Nothing is uploaded[/b], no file contents are read, no API key is required, and identifiers only ever travel in request bodies — never in URLs.
+
+[size=4][b]Requirements[/b][/size]
+
+Vortex [b]2.3.0-beta.1 or newer[/b] (uses the health check API introduced there; tested through 2.4.0-beta.1).
+
+[size=4][b]Honest limitations[/b][/size]
+
+The site doesn't record [i]who[/i] deleted a file. A moderation takedown and an author tidying up old versions look identical, so a FLAGGED old file can also mean routine author cleanup — when in doubt, check the mod page. Hidden or unpublished mods are deliberately [i]not[/i] flagged.
+
+[size=4][b]Source[/b][/size]
+
+Open source (GPL-3): [url=https://github.com/Jrollsons/vortex-mod-safety]github.com/Jrollsons/vortex-mod-safety[/url] — issues and PRs welcome.
