@@ -4,67 +4,60 @@
 <meta charset="utf-8">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html, body { width: 1920px; height: 1080px; overflow: hidden; }
+  html, body { width: 1300px; height: 372px; overflow: hidden; }
   body {
     font-family: "Segoe UI", system-ui, sans-serif;
     background:
-      radial-gradient(ellipse 1400px 900px at 30% 45%, #22303c 0%, #12181d 55%, #0b0f12 100%);
+      radial-gradient(ellipse 900px 500px at 22% 50%, #22303c 0%, #12181d 60%, #0b0f12 100%);
     color: #eef2f5;
     position: relative;
   }
-  /* faint hex grid */
   .grid {
     position: absolute; inset: 0;
     background-image:
       linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
       linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-    background-size: 72px 72px;
-    mask-image: radial-gradient(ellipse 1200px 800px at 35% 45%, black 30%, transparent 75%);
-    -webkit-mask-image: radial-gradient(ellipse 1200px 800px at 35% 45%, black 30%, transparent 75%);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse 800px 420px at 28% 50%, black 30%, transparent 78%);
+    -webkit-mask-image: radial-gradient(ellipse 800px 420px at 28% 50%, black 30%, transparent 78%);
   }
   .wrap {
     position: absolute; inset: 0;
     display: flex; align-items: center;
-    padding: 0 120px;
-    gap: 100px;
+    padding: 0 64px;
+    gap: 56px;
   }
-  .shield-col { flex-shrink: 0; position: relative; }
+  .shield-col { flex-shrink: 0; position: relative; display: flex; align-items: center; }
   .shield-glow {
     position: absolute; left: 50%; top: 50%;
-    width: 560px; height: 560px;
+    width: 340px; height: 340px;
     transform: translate(-50%, -50%);
     background: radial-gradient(circle, rgba(87,197,153,0.22) 0%, transparent 65%);
   }
-  .text-col { flex-grow: 1; }
+  .text-col { flex-grow: 1; min-width: 0; }
+  .row1 { display: flex; align-items: baseline; gap: 26px; margin-bottom: 12px; }
+  h1 { font-size: 74px; font-weight: 800; letter-spacing: -1px; line-height: 1; }
   .kicker {
-    font-size: 30px; letter-spacing: 10px; text-transform: uppercase;
-    color: #57c599; font-weight: 600; margin-bottom: 18px;
-  }
-  h1 {
-    font-size: 128px; font-weight: 800; letter-spacing: -2px;
-    line-height: 1.02; margin-bottom: 30px;
+    font-size: 19px; letter-spacing: 6px; text-transform: uppercase;
+    color: #57c599; font-weight: 600; position: relative; top: -6px;
   }
   .tag {
-    font-size: 44px; font-weight: 300; color: #c3ced6;
-    line-height: 1.35; margin-bottom: 56px; max-width: 980px;
+    font-size: 25px; font-weight: 300; color: #c3ced6;
+    line-height: 1.32; margin-bottom: 24px; max-width: 900px;
   }
   .tag b { color: #eef2f5; font-weight: 600; }
-  .chips { display: flex; gap: 26px; margin-bottom: 64px; }
+  .chips { display: flex; gap: 14px; align-items: center; }
   .chip {
-    font-size: 30px; font-weight: 700; letter-spacing: 1px;
-    padding: 16px 36px; border-radius: 999px;
-    border: 2px solid; display: flex; align-items: center; gap: 14px;
+    font-size: 17px; font-weight: 700; letter-spacing: 0.5px;
+    padding: 8px 20px; border-radius: 999px;
+    border: 2px solid; display: flex; align-items: center; gap: 9px;
   }
-  .chip::before { content: ""; width: 16px; height: 16px; border-radius: 50%; background: currentColor; }
+  .chip::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: currentColor; }
   .clean   { color: #57c599; border-color: rgba(87,197,153,0.55);  background: rgba(87,197,153,0.10); }
   .flagged { color: #ff6b6b; border-color: rgba(255,107,107,0.55); background: rgba(255,107,107,0.10); }
   .caution { color: #ffb454; border-color: rgba(255,180,84,0.55);  background: rgba(255,180,84,0.10); }
   .unknown { color: #9fb0bc; border-color: rgba(159,176,188,0.45); background: rgba(159,176,188,0.08); }
-  .footer {
-    font-size: 30px; color: #8b9aa5; letter-spacing: 0.5px;
-    display: flex; align-items: center; gap: 20px;
-  }
-  .footer .dot { width: 8px; height: 8px; border-radius: 50%; background: #46545f; }
+  .foot { font-size: 17px; color: #8b9aa5; margin-left: 12px; letter-spacing: 0.3px; white-space: nowrap; }
 </style>
 </head>
 <body>
@@ -72,7 +65,7 @@
   <div class="wrap">
     <div class="shield-col">
       <div class="shield-glow"></div>
-      <svg width="480" height="540" viewBox="0 0 480 540" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg width="250" height="281" viewBox="0 0 480 540" fill="none" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient id="sg" x1="0" y1="0" x2="480" y2="540">
             <stop offset="0%" stop-color="#2f4450"/>
@@ -92,19 +85,17 @@
       </svg>
     </div>
     <div class="text-col">
-      <div class="kicker">Vortex Extension</div>
-      <h1>Mod Safety</h1>
-      <div class="tag">Is that mod still on Nexus Mods? If a file was <b>removed from the site</b>, you'll know — <b>before you deploy it</b> into your game.</div>
+      <div class="row1">
+        <h1>Mod Safety</h1>
+        <div class="kicker">Vortex Extension</div>
+      </div>
+      <div class="tag">Is that mod still on Nexus Mods? If a file was <b>removed from the site</b>, you'll know — <b>before you deploy it</b>.</div>
       <div class="chips">
         <div class="chip clean">CLEAN</div>
         <div class="chip flagged">FLAGGED</div>
         <div class="chip caution">CAUTION</div>
         <div class="chip unknown">UNKNOWN</div>
-      </div>
-      <div class="footer">
-        <span>Scans on every launch</span><span class="dot"></span>
-        <span>Safety column on your mod list</span><span class="dot"></span>
-        <span>No API key needed</span>
+        <div class="foot">Scans on every launch</div>
       </div>
     </div>
   </div>
