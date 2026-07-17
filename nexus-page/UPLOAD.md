@@ -17,7 +17,10 @@ gives users in-app install and update notifications — something GitHub release
 
 ## Images (in this order)
 
-1. `banner.png` — set as the primary/header image (1920x1080)
+0. `thumbnail.png` — the thumbnail (1280x720, 16:9). Icon-only, no text: a mod
+   list with green/amber verdicts and one red flagged row, plus the shield mark.
+   Verified legible at ~200px search-result size.
+1. `banner.png` — set as the header image (1300x372)
 2. `shot-startup.png` — full Vortex window: startup scan notification + Safety column + toolbar button
 3. `shot-column.png` — mod list showing Clean and Unknown verdicts side by side
 4. `shot-notification-crop.png` — close-up of the "all clear" notification
